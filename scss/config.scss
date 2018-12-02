@@ -1,7 +1,7 @@
-$primary-color: #444;
-$secondary-color: #eece1a;
+$primary-color: #fff;
+$secondary-color: #747474;
 $show-home-image: true;
-$home-image: url(../img/background.jpg);
+$home-image: url(../img/.jpg);
 $background-opacity: 0.9;
 
 @mixin easeOut{
@@ -13,6 +13,7 @@ $background-opacity: 0.9;
             background: $home-image;
             background-attachment: fixed;
             background-size: cover;
+            background-repeat: no-repeat;
 
             &:after{
                 content: '';

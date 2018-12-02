@@ -10,19 +10,23 @@ body{
     color: #fff;
     height: 100%;
     margin: 0;
-    font-family: Futura, Tahoma, Geneva, Veranda, sans-serif;
+    font-family: 'Abril Fatface', Tahoma, Geneva, Veranda, sans-serif;
     line-height: 1.5;
 }
 // Headings
 h1, h2, h3{
     margin:0;
+    // text-transform: uppercase;
     font-weight:400;
 
     &.lg-heading{
+        color: black;
         font-size: 6rem;
+
     }
 
     &.sm-heading{
+        color: $secondary-color;
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
         background: (lighten($primary-color, 0.2), 0.5);
@@ -30,7 +34,7 @@ h1, h2, h3{
 }
 
 a{
-    color: #fff;
+    color: black;
     text-decoration: none;
 }
 
@@ -42,6 +46,11 @@ header{
 
 .text-secondary{
     color: $secondary-color;
+    background: url(../img/rose.jpg);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
 }
 
@@ -69,9 +78,12 @@ main{
         }
     }
 }
-
+.leafcontainer{
+    z-index: -1;
+}
 .about-info{
-    background: $primary-color;
+    color: black;
+    background: none;
     padding: 2rem;
     display: grid;
     grid-gap: 30px;
@@ -86,7 +98,7 @@ main{
         grid-area: bioimage;
         margin: auto;
         border-radius: 50%;
-        border: $secondary-color 3px solid;
+        // border: $secondary-color 3px solid;
     }
      .bio{
          grid-area: bio;
@@ -99,7 +111,7 @@ main{
          &:hover{
              @include easeOut;
              color: set-text-color($primary-color);
-             // background: $home-image;
+             background: $home-image;
              .company{ @include easeOut;
                 transform:translate3d(0,50%,50%);
                 font-size: 1.5rem;
@@ -120,6 +132,13 @@ main{
          grid-area: job3;
      }
  }
+.worklnks{
+    color:$secondary-color;
+    @include easeOut;
+    &:hover{
+        color: lighten($secondary-color, 20);
+    }
+}
 }
 
 //Work/projects
@@ -129,17 +148,120 @@ main{
     grid-template-columns: repeat(3, 1fr);
 
 
-    img{
-        width: 100%;
-        border: 3px #fff solid;
-        &:hover{
-            opacity: 0.5;
-            border-color: $secondary-color;
-            @include easeOut;
-        }
+    .content{
+      height: 400px;
+      width: 700px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      color: white;
+    -webkit-box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.1);
+    box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.1);
+    }
+}
+// .x1{
+//   width:200px;
+//   height:150px;
+//   background-color:#9CB1FF;
+//   left: 0;
+//   top: 0;
+//   position: relative;
+//   line-height:150px;
+// }
+//
+// .x2{
+//   position:absolute;
+//   height:250px;
+//   width:300px;
+//   left:400px;
+//   top:0px;
+//   background-color:#FFFFFF;
+//   line-height:250px;
+//   color:black;
+// }
+//
+// .x3{
+//   position:absolute;
+//   height:250px;
+//   width:200px;
+//   left:0px;
+//   top:150px;
+//   background-color:#6694FC;
+//   line-height:250px;
+// }
+//
+// .x4{
+//   position:absolute;
+//   height:150px;
+//   width:500px;
+//   left:200px;
+//   top:250px;
+//   background-color:#706AF3;
+//   line-height:150px;
+// }
+//
+// .x5{
+//   position:absolute;
+//   height:250px;
+//   width:200px;
+//   left:200px;
+//   top:0px;
+//   background-color:#8593E6;
+//   line-height:250px;
+// }
+
+.block{
+  -webkit-animation:scaledown 1s linear;
+  -moz-animation:scaledown 1s linear;
+  animation:scaledown 1s linear;
+  transform-origin:50% 50%;
+  animation-fill-mode: forwards;
+}
+
+.block:hover{
+   z-index:100;
+  -webkit-animation:scale 1s linear;
+  -moz-animation:scale 1s linear;
+  animation:scale 1s linear;
+  transform-origin:50% 50%;
+  animation-fill-mode: forwards;
+}
+.workimg{
+    width: 100%;
+    border: 3px #fff solid;
+    &:hover{
+        opacity: 0.5;
+        border-color: $secondary-color;
+        @include easeOut;
     }
 }
 
+
+
+@keyframes scale{
+  0%{
+    transform:scale(1.0);
+  }
+  100%{
+    transform:scale(1.1);
+    -webkit-box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.1);
+-moz-box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.1);
+box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.1);
+  }
+}
+
+@keyframes scaledown{
+  0%{
+    transform:scale(1.1);
+  }
+   100%{
+    transform:scale(1.0);
+  }
+
+}
 // Contact Page
 .boxes{
     display: flex;
@@ -148,7 +270,7 @@ main{
     align-items: center;
     margin-top: 1rem;
 
-    div{
+    .contact{
         font-size: 2rem;
         border: 3px #fff solid;
         padding: 1.5rem 2.5rem;
@@ -186,6 +308,77 @@ main{
     @extend .btn;
     background: lighten($primary-color, 50);
     color: #333;
+}
+
+/****************************
+            PETALS
+****************************/
+section{
+    width: 100%;
+    height: 50%;
+
+}
+.set{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .petal{
+        position:absolute;
+        display: block;
+    }
+    .petal:nth-child(1){
+        z-index: -3;
+        left: 50%;
+        animation: animate 15s linear infinite;
+        animation-delay: -7s;
+    }
+    .petal:nth-child(2){
+        z-index: -3;
+        left: 50%;
+        animation: animate 20s linear infinite;
+        animation-delay: -5s;
+
+    }
+    .petal:nth-child(3){
+        z-index: -3;
+        left: 55%;
+        animation: animate 18s linear infinite;
+        animation-delay: -2s;
+    }
+    .petal:nth-child(4){
+        z-index: -3;
+        left: 58%;
+        animation: animate 13s linear infinite;
+    }
+}
+@keyframes animate{
+    0%{
+        opacity: 0;
+        top:-10%;
+    }
+    10%{
+        opacity: 1;
+    }
+    20%{
+        transform: translateX(-20px) rotate(45deg);
+    }
+    40%{
+        transform: translateX(-20px) rotate(90deg);
+    }
+    60%{
+        transform: translateX(20px) rotate(135deg);
+    }
+    80%{
+        transform: translateX(-20px) rotate(180deg);
+    }
+    100%{
+        top:110%;
+        transform: translateX(-20px) rotate(225deg);
+
+    }
+
 }
 
 #main-footer {

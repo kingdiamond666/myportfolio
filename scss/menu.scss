@@ -23,7 +23,7 @@
             //Line 1 - rotate
             &:nth-child(1){
                 transform: rotate(45deg) translate(5px, 5px);
-                background: #fff;
+                background: darken($secondary-color, 20);
             }
             //Line 2 - hidden
             &:nth-child(2){
@@ -32,7 +32,7 @@
             //Line 3 - rotate
             &:nth-child(3){
                 transform: rotate(-45deg) translate(7px, -6px);
-                background: #fff;
+                background: darken($secondary-color, 20);
             }
 
         }
@@ -108,20 +108,26 @@
         }
         &.current > a {
             color: $secondary-color;
+            background: url(../img/rose.jpg);
+            background-size: cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;;
         }
     }
     .nav-link {
         display: inline-block;
         position: relative;
         font-size: 30px;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         padding: 1rem 0;
         font-weight: 300;
-        color: white;
+        color: $secondary-color;
+
         text-decoration: none;
         @include easeOut;
         &:hover{
-            color: $secondary-color;
+            color: darken($secondary-color, 20);
         }
     }
 }
