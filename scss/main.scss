@@ -63,6 +63,7 @@ main{
 
         a {
             padding: 0.4rem;
+            z-index: 3
 
             &:hover{
                 color: $secondary-color;
@@ -77,6 +78,9 @@ main{
             margin-top: 20vh;
         }
     }
+}
+.set{
+  z-index: -1;
 }
 .leafcontainer{
     z-index: -1;

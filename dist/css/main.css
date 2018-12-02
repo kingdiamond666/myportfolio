@@ -158,14 +158,18 @@ main {
   main .icons {
     margin-top: 1rem; }
     main .icons a {
-      padding: 0.4rem; }
-      main .icons a:hover {
+      padding: 0.4rem;
+      z-index: 3 main .icons a; }
+      main .icons a :hover {
         color: #747474;
         transition: all 0.5s ease-out; }
   main#home {
     overflow: hidden; }
     main#home h1 {
       margin-top: 20vh; }
+
+.set {
+  z-index: -1; }
 
 .leafcontainer {
   z-index: -1; }
